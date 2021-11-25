@@ -1,0 +1,172 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Outfit&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Open+Sans&display=swap");
+:root {
+  /* Colors */
+  --brightOrange: hsl(31, 77%, 52%);
+  --darkCyan: hsl(184, 100%, 22%);
+  --veryDarkCyan: hsl(179, 100%, 13%);
+  --transparentWhite: hsla(0, 0%, 100%, 0.75);
+  --veryLightGray: hsl(0, 0%, 95%);
+  --card-border-radius: 5px;
+  --ff-outfit: "Outfit", sans-serif;
+  --ff-big-shoulders: "Big Shoulders Display", cursive;
+  --fs-default: 15px;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default padding */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Natural flow and rhythm in articles by default */
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  place-items: center;
+  height: 100vh;
+}
+.container .card:first-child {
+  border-top-left-radius: var(--card-border-radius);
+  border-top-right-radius: var(--card-border-radius);
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.container .card:last-child {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: var(--card-border-radius);
+  border-bottom-left-radius: var(--card-border-radius);
+}
+@media (min-width: 50em) {
+  .container {
+    flex-direction: row;
+    justify-content: center;
+  }
+  .container .card:first-child {
+    border-top-left-radius: var(--card-border-radius);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: var(--card-border-radius);
+  }
+  .container .card:last-child {
+    border-top-left-radius: 0;
+    border-top-right-radius: var(--card-border-radius);
+    border-bottom-right-radius: var(--card-border-radius);
+    border-bottom-left-radius: 0;
+  }
+}
+
+.card {
+  color: var(--veryLightGray);
+  padding: 2rem;
+}
+.card > * + * {
+  margin-top: 1rem;
+}
+.card .category {
+  font-family: var(--ff-big-shoulders);
+}
+.card .description {
+  font-family: var(--ff-outfit);
+  max-width: 21ch;
+  font-size: 0.875rem;
+  height: 10rem;
+}
+.card.sedans {
+  background: var(--brightOrange);
+}
+.card.sedans button.learn-more {
+  color: var(--brightOrange);
+}
+.card.suvs {
+  background: var(--darkCyan);
+}
+.card.suvs button.learn-more {
+  color: var(--darkCyan);
+}
+.card.luxury {
+  background: var(--veryDarkCyan);
+}
+.card.luxury button.learn-more {
+  color: var(--veryDarkCyan);
+}
+.card button.learn-more {
+  border-radius: 50px;
+  border: none;
+  padding: 0.5rem 2rem;
+  font-family: var(--ff-outfit);
+  font-size: 0.875rem;
+}
